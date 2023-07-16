@@ -43,6 +43,6 @@ app.put('/image', (req, res) => {handleImageEntry(req, res, db)});
 //         .catch(err => res.status(400).json('cannot get entries'))
 
 // })
-app.listen(3000, () => {
-    console.log('Helloooo')
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`app is running on port ${PORT}`)
 })
