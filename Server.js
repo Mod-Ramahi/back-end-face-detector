@@ -8,6 +8,9 @@ import handleRegister from './controller/Register.js'
 import handleProfileGet from "./controller/Profile.js";
 import handleImageEntry from "./controller/Image.js";
 
+
+const PORT = process.env.PORT || 3000;
+
 const db = knex({
     client: 'pg',
     connection: {
@@ -43,6 +46,6 @@ app.put('/image', (req, res) => {handleImageEntry(req, res, db)});
 //         .catch(err => res.status(400).json('cannot get entries'))
 
 // })
-app.listen(process.env.PORT || 3000, () => {
+app.listen(PORT || 3000, () => {
     console.log(`app is running on port ${PORT}`)
 })
