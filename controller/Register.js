@@ -42,12 +42,12 @@ const handleRegister = (req, res, db, bcrypt) => {
                             .catch((err) => {
                                 console.log(err)
                                 trx.rollback()
-                                res.status(500).json('Error during transaction');
+                                res.status(500).json({message:'Errorr during transaction', err: err.message});
                             })
                     })
                         .catch((err) => {
-                            console.error(err); // Log the error for debugging purposes
-                            res.status(500).json('Error during transaction');
+                            // console.error(err); // Log the error for debugging purposes
+                            res.status(500).json({message:'Errorrr during transaction', err: err.message});
                         });
                 }
             })
